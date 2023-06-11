@@ -42,7 +42,9 @@ class HuggingFaceDataLoad:
         ) as desc:
             desc.write(description)
 
-        print(f"Dataset description loaded in ./data/source/dataset_desc_{self.lang}.txt")
+        print(
+            f"Dataset description loaded in ./data/source/dataset_desc_{self.lang}.txt"
+        )
 
     def inspectdatafeatures(self):
         """Get data features
@@ -71,6 +73,6 @@ class HuggingFaceDataLoad:
         data :
             data from HF
         """
-        data = load_dataset(self.name, split=split_name, lang=self.lang)
+        data = load_dataset(self.name, self.lang, split=split_name)
 
         return data
